@@ -12,7 +12,7 @@ void Input(int matrix[N][M])
 void Menu(int matrix[N][M])
 {
     char choice = 'y';
-    printf("Welcome to menu!!\n");
+    printf("\nWelcome to menu!!\n");
     while ((choice == 'y') || (choice == 'Y'))
     {
         printf("What exact function do you want to perform?\n");
@@ -21,8 +21,17 @@ void Menu(int matrix[N][M])
         printf("2 - Print\n");
         printf("3 - Transportation\n");
         printf("Function number: ");
+
         int func_num;
-        scanf("%d", &func_num);
+
+        if (scanf("%d", &func_num) != 1)
+        {
+            printf("Invalid input. Please enter a number.\n\n");
+            while (getchar() != '\n');
+            continue;
+        }
+
+        while (getchar() != '\n');
 
         switch (func_num)
         {
@@ -39,16 +48,24 @@ void Menu(int matrix[N][M])
             printf("Invalid function number.\n");
         }
 
-        printf("Would you like to continue? (y/n): ");
-        getchar();
-        choice = (char)getchar();
-        //while (choice != 'y')
-        //{
-        //    /* code */
-        //}
+        while (1)
+        {
+            printf("\nWould you like to continue? (y/n): ");
+            choice = (char)getchar();
+
+            while (getchar() != '\n');
+
+            if (choice == 'y' || choice == 'Y')
+                break;
+            else if (choice == 'n' || choice == 'N')
+            {
+                printf("\nreturn to main()\n");
+                return;
+            }
+            else
+                printf("Input invalid answer, try again\n");
+        }
     }
-    
-    printf("return to main()\n");
 }
 
 void Print(int matrix[N][M])
@@ -59,7 +76,6 @@ void Print(int matrix[N][M])
         }
         printf("\n");
     }
-    printf("\n");
 }
 
 void Transportation(int matrix[N][M])
