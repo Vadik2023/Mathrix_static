@@ -1,0 +1,13 @@
+{
+  "configurations": [
+    {
+      "name": "Win64",
+      "includePath": ["${workspaceFolder}/**"],
+      "defines": [],
+      "compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
+      "cStandard": "c11",
+      "intelliSenseMode": "windows-gcc-x64"
+    }
+  ],
+  "version": 4
+}

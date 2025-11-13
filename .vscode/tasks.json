@@ -1,0 +1,31 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build current file (single)",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe"
+            ],
+            "group": { "kind": "build", "isDefault": true },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "build project (all .c in folder)",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "${fileDirname}/*.c",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe"
+            ],
+            "group": { "kind": "build" },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
