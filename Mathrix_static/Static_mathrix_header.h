@@ -9,3 +9,4 @@ void Input(int matrix[N][M]);
 void Menu(int matrix[N][M]);
 void Print(int matrix[N][M]);
 void Transportation(int matrix[N][M]);
+void Exit();

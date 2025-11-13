@@ -24,6 +24,7 @@ void Menu(int matrix[N][M])
         printf("1 - Input\n");
         printf("2 - Print\n");
         printf("3 - Transportation\n");
+        printf("0 - Exit\n");
         printf("Function number: ");
 
         int func_num;
@@ -52,6 +53,9 @@ void Menu(int matrix[N][M])
         case 3:
             Transportation(matrix);
             break;
+        case 0:
+            Exit();
+            break;
         default:
             printf("Invalid function number.\n");
         }
@@ -64,7 +68,8 @@ void Menu(int matrix[N][M])
             int c;
 
             // пропускаем все пробелы и Enter от предыдущего ввода
-            do {
+            do
+            {
                 c = getchar();
                 if (c == EOF) return; // защита
             } while (c == ' ' || c == '\n');
@@ -103,4 +108,9 @@ void Print(int matrix[N][M])
 void Transportation(int matrix[N][M])
 {
 
+}
+
+void Exit()
+{
+    exit(0);
 }
