@@ -3,11 +3,7 @@
 
 int main()
 {
-    int matrix[N][M] = {
-        {2, 3, 8, 9},
-        {1, 5, 4, 6},
-        {7, 1, 2, 3}
-    };
+    int matrix[N][M];
     
     Menu(matrix);
 
