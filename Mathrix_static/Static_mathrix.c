@@ -4,8 +4,11 @@
 int main()
 {
     int matrix[N][M];
+    int T_matrix[M][N];
+    bool isTrans = false;
+    bool *p_isTrans = &isTrans;
     
-    Menu(matrix);
+    Menu(matrix, T_matrix, p_isTrans);
 
     return 0;
 }

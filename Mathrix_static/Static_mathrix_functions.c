@@ -1,19 +1,52 @@
 #include "Static_mathrix_header.h"
 
-void Input(int matrix[N][M])
+void Input(int matrix[N][M], int T_matrix[M][N], bool *p_isTrans)
 {
     printf("Please, write matrix elements\n");
 
-    for (int i = 0; i < N; i++)
+    if(*p_isTrans) //после применения команды Transportation, будет этот блок отрабатывать
     {
-        for (int j = 0; j < M; j++)
+        //сканирование консоли, заполнение "транспорированной" матрицы елементами пользователя
+        for (int i = 0; i < M; i++)
         {
-            scanf("%d", &matrix[i][j]);
+            for (int j = 0; j < N; j++)
+            {
+                scanf("%d", &T_matrix[i][j]);
+            }
+        }
+
+        //изменение "обычной" матрицы под действием "транспорированной"
+        for (int i = 0; i < N; i++) 
+        {
+            for (int j = 0; j < M; j++)
+            {
+                matrix[i][j] = T_matrix[j][i];
+            }
+        }
+    }
+    else //стандартный ход алгоритма: через обычную матрицу создаем транспорированную
+    {
+        //сканирование консоли, заполнение "обычной" матрицы елементами пользователя
+        for (int i = 0; i < N; i++)
+        {
+            for (int j = 0; j < M; j++)
+            {
+                scanf("%d", &matrix[i][j]);
+            }
+        }
+
+        //заполнение/присваивание "транспорированной" матриц-ы/-е элемент-ами/-ов с "обычной"
+        for (int i = 0; i < N; i++) 
+        {
+            for (int j = 0; j < M; j++)
+            {
+                T_matrix[j][i] = matrix[i][j];
+            }
         }
     }
 }
 
-void Menu(int matrix[N][M])
+void Menu(int matrix[N][M], int T_matrix[M][N], bool *p_isTrans)
 {
     char choice = 'y';
     printf("\nWelcome to menu!!\n");
@@ -45,13 +78,13 @@ void Menu(int matrix[N][M])
         switch (func_num)
         {
         case 1:
-            Input(matrix);
+            Input(matrix, T_matrix, p_isTrans);
             break;
         case 2:
-            Print(matrix);
+            Print(matrix, T_matrix, p_isTrans);
             break;
         case 3:
-            Transportation(matrix);
+            Transportation(p_isTrans);
             break;
         case 0:
             Exit();
@@ -91,23 +124,39 @@ void Menu(int matrix[N][M])
 }
 
 
-void Print(int matrix[N][M])
+void Print(int matrix[N][M], int T_matrix[M][N], bool *p_isTrans)
 {
     printf("Your matrix:\n");
 
-    for (int i = 0; i < N; i++)
+    if(*p_isTrans)
     {
-        for (int j = 0; j < M; j++)
+        for (int i = 0; i < M; i++)
         {
-            printf("%d ", matrix[i][j]);
+            for (int j = 0; j < N; j++)
+            {
+                printf("%d ", T_matrix[i][j]);
+            }
+            printf("\n");
         }
-        printf("\n");
+    }
+    else
+    {
+        for (int i = 0; i < N; i++)
+        {
+            for (int j = 0; j < M; j++)
+            {
+                printf("%d ", matrix[i][j]);
+            }
+            printf("\n");
+        }
     }
 }
 
-void Transportation(int matrix[N][M])
+void Transportation(bool *p_isTrans)
 {
+    printf("Matrix has been transported");
 
+    *p_isTrans = !(*p_isTrans);
 }
 
 void Exit()
