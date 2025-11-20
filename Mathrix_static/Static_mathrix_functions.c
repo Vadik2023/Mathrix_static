@@ -154,7 +154,7 @@ void Print(int matrix[N][M], int T_matrix[M][N], bool *p_isTrans)
 
 void Transportation(bool *p_isTrans)
 {
-    printf("Matrix has been transported");
+    printf("Matrix has been transported\n");
 
     *p_isTrans = !(*p_isTrans);
 }

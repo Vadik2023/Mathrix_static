@@ -8,6 +8,7 @@ int main()
     bool isTrans = false;
     bool *p_isTrans = &isTrans;
     
+    Input(matrix, T_matrix, p_isTrans);
     Menu(matrix, T_matrix, p_isTrans);
 
     return 0;
