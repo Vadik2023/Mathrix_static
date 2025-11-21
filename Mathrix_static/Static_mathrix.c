@@ -4,7 +4,9 @@
 int main()
 {
     int n;
+    int *p_n = &n;
     int m;
+    int *p_m = &m;
 
     printf("\nInput number of lines: ");
     scanf("%d", &n);
@@ -14,12 +16,9 @@ int main()
     printf("\n");
 
     int matrix[n][m];
-    int T_matrix[m][n];
-    bool isTrans = false;
-    bool *p_isTrans = &isTrans;
     
-    Input(n, m, matrix, T_matrix, p_isTrans);
-    Menu(n, m, matrix, T_matrix, p_isTrans);
+    Input(p_n, p_m, matrix);
+    Menu(p_n, p_m, matrix);
 
     return 0;
 }
