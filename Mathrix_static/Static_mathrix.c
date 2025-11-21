@@ -3,13 +3,23 @@
 
 int main()
 {
-    int matrix[N][M];
-    int T_matrix[M][N];
+    int n;
+    int m;
+
+    printf("\nInput number of lines: ");
+    scanf("%d", &n);
+
+    printf("Input number of columns: ");
+    scanf("%d", &m);
+    printf("\n");
+
+    int matrix[n][m];
+    int T_matrix[m][n];
     bool isTrans = false;
     bool *p_isTrans = &isTrans;
     
-    Input(matrix, T_matrix, p_isTrans);
-    Menu(matrix, T_matrix, p_isTrans);
+    Input(n, m, matrix, T_matrix, p_isTrans);
+    Menu(n, m, matrix, T_matrix, p_isTrans);
 
     return 0;
 }
